@@ -1,0 +1,71 @@
+<!--
+==========================================================
+ REQUISIÇÃO DE MATERIAIS
+ ..........................................................
+ Autor ...........: Daniel Melo
+ Ano .............: 2026
+ Local de uso ....: Ambiente de trabalho da Vero (uso interno)
+ Versão ..........: 1.0
+
+ Descrição:
+   Formulário para solicitação de materiais. O requisitante
+   escolhe seu nome, adiciona um ou mais materiais com
+   quantidade e gera um PDF (tabela Item / Quantidade, com
+   rodapé de identificação) para compartilhar pelo WhatsApp
+   ou enviar por e-mail.
+
+ Como funciona:
+   1. Seleciona o requisitante.
+   2. Escolhe o material e informa a quantidade
+      (botão "+ Adicionar material" cria novas linhas).
+   3. Clica em "Gerar PDF": o arquivo é criado no próprio
+      navegador, sem servidor e sem bibliotecas externas.
+   4. Compartilha pelo WhatsApp / e-mail ou baixa o PDF.
+
+ Tecnologias:
+   HTML, CSS e JavaScript puro (funciona offline).
+
+ Personalização:
+   Lista de requisitantes, materiais, e-mail de destino,
+   número do WhatsApp e nome do desenvolvedor ficam no bloco
+   "CONFIGURAÇÕES" do script.
+
+ Direitos:
+   Uso restrito ao ambiente de trabalho da Vero. É proibida a
+   cópia, alteração ou redistribuição sem autorização do autor.
+ ==========================================================
+-->
+ <!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="requisição de materiais" content="aplicação designada para solicitação de material para técnicos da vero internet, uso interno">
+    <meta property="og:image" content="https://requisicao-vero.htmly.com.br/">
+    <link rel="icon" type="image/png" href="icon/ico.png">
+    <title>Vero Internert || Requisição de Materiais</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="card">
+      <h1><i>Requisição de Materiais</i></h1>
+
+      <label for="nome">Requisitante</label>
+      <select id="nome"></select>
+
+      <div style="height:16px"></div>
+      <div id="itens"></div>
+     
+      <button class="b add" type="button" onclick="addLinha()">+ Adicionar material</button>
+
+      <div class="err" id="err"></div>
+      <button class="b go" type="button" onclick="gerar()">Requisitar</button>
+
+      <div id="out">
+        <pre id="previa"></pre>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

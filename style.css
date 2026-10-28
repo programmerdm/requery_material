@@ -1,0 +1,179 @@
+/*==========================================================
+ REQUISIÇÃO DE MATERIAIS
+ ..........................................................
+ Autor ...........: Daniel Melo
+ Ano .............: 2026
+ Local de uso ....: Ambiente de trabalho da Vero (uso interno)
+ Versão ..........: 1.0
+
+ Descrição:
+   Formulário para solicitação de materiais. O requisitante
+   escolhe seu nome, adiciona um ou mais materiais com
+   quantidade e gera um PDF (tabela Item / Quantidade, com
+   rodapé de identificação) para compartilhar pelo WhatsApp
+   ou enviar por e-mail.
+
+ Como funciona:
+   1. Seleciona o requisitante.
+   2. Escolhe o material e informa a quantidade
+      (botão "+ Adicionar material" cria novas linhas).
+   3. Clica em "Gerar PDF": o arquivo é criado no próprio
+      navegador, sem servidor e sem bibliotecas externas.
+   4. Compartilha pelo WhatsApp / e-mail ou baixa o PDF.
+
+ Tecnologias:
+   HTML, CSS e JavaScript puro (funciona offline).
+
+ Personalização:
+   Lista de requisitantes, materiais, e-mail de destino,
+   número do WhatsApp e nome do desenvolvedor ficam no bloco
+   "CONFIGURAÇÕES" do script.
+
+ Direitos:
+   Uso restrito ao ambiente de trabalho da Vero. É proibida a
+   cópia, alteração ou redistribuição sem autorização do autor.
+ ==========================================================*/
+
+
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--tx);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  padding:16px
+}
+
+.card{
+  max-width:640px;
+  margin:0 auto;
+  background:var(--card);
+  border:1px solid var(--bd);
+  border-radius:14px;
+  padding:20px
+}
+
+h1{
+  text-align: center;
+  font-size:1.3rem;
+  margin:0 0 16px;
+
+}
+
+label{
+  display:block;
+  font-size:.85rem;
+  color:var(--mut);
+  margin:0 0 4px
+}
+
+button.b{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:10px;
+  color:#fff
+}
+
+ 
+
+:root{
+  --bg:#f4f6f8;
+  --card:#fff;
+  --tx:#1d2733;
+  --mut:#6b7785;
+  --bd:#d5dbe1;
+  --pri:#1f6feb;
+  --ok:#25d366;
+  --dg:#d33
+}
+
+@media (prefers-color-scheme:dark){
+  :root{--bg:#12161b;
+        --card:#1c232b;
+        --tx:#e8edf2;
+        --mut:#93a1b0;
+        --bd:#33404d;
+        --pri:#4c8dff;
+        --dg:#ff6b6b
+      }
+  }
+
+
+
+select,input{
+  width:100%;
+  padding:11px;
+  border:1px solid var(--bd);
+  border-radius:8px;
+  background:var(--bg);
+  color:var(--tx);
+  font-size:1rem
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 90px 40px;
+  gap:8px;
+  align-items:end;
+  margin-bottom:10px
+}
+
+.rm{
+  height:44px;
+  border:1px solid var(--bd);
+  background:none;
+  color:var(--dg);
+  border-radius:8px;
+  font-size:1.1rem;
+  cursor:pointer
+}
+
+
+.add{
+  background:none!important;
+  border:1px dashed var(--pri)!important;
+  color:var(--pri)!important;
+}
+
+.go{
+  background:var(--pri)
+}
+
+.wa{
+  background:var(--ok)
+}
+
+.em{
+  background:#6b7785
+}
+
+#out{
+  display:none;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--bd)
+}
+
+pre{
+  white-space:pre-wrap;
+  background:var(--bg);
+  border:1px solid var(--bd);
+  border-radius:8px;
+  padding:10px;
+  font-size:.85rem
+}
+
+.err{
+  color:var(--dg);
+  font-size:.9rem;
+  margin-top:8px;
+  min-height:1em
+}
