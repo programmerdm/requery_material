@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="icon/ico.png">
+    <title>Vero Internet || Requisição de Materiais</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="card">
+      <h1><i>Requisição de Materiais</i></h1>
+
+      <label for="regional">Regional</label>
+      <select id="regional" onchange="trocarRegional()"></select>
+
+      <div style="height:12px"></div>
+      <label for="nome">Requisitante</label>
+      <select id="nome" disabled><option value="">Selecione a regional primeiro</option></select>
+
+      <div style="height:16px"></div>
+      <div id="itens"></div>
+     
+      <button class="b add" type="button" onclick="addLinha()">+ Adicionar material</button>
+
+      <div class="err" id="err"></div>
+      <button class="b go" type="button" onclick="gerar()">Requisitar</button>
+
+      <div id="out">
+        <pre id="previa"></pre>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
